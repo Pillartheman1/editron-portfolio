@@ -2,11 +2,12 @@
 <title>Training Editron: Daniel Klabunde's AI video-editing agent</title>
 <meta name="description" content="Case study: how video producer Daniel Klabunde trained an AI agent to edit video by critiquing every cut, take, grade and caption.">
 <link rel="stylesheet" href="style.css"></head><body>
-<nav><div class="w"><a href="#top">Overview</a><a href="#editron">Editron</a><a href="#timeline">Timeline</a><a href="#methods">Methods</a><a href="#rulebook">Rulebook</a><a href="#problems">Problems → Fixes</a><a href="#work">Work</a><a href="#about">About</a></div></nav>
+<nav><div class="w"><a href="#top">Overview</a><a href="#editron">Editron</a><a href="#timeline">Timeline</a><a href="#build">Grok Build</a><a href="#methods">Methods</a><a href="#rulebook">Rulebook</a><a href="#problems">Problems → Fixes</a><a href="#work">Work</a><a href="#about">About</a></div></nav>
 <header id="top" class="hero"><div class="w">
 <div class="kick">Case study · Oct 14 – Oct 22, 2026</div>
 <h1>Teaching an AI to edit video like I do</h1>
-<p class="lead">I'm Daniel Klabunde, a video producer and editor who has run <b>Klabunde Media Company</b> since 2020. In October 2026 I built <b>Editron</b>, an AI video-editing agent. Then I trained it the way you would train a junior editor: I critiqued every version it made, wrote down <i>why</i> each cut, take, grade or caption worked or failed, and turned those notes into rules, tools and automated checks.</p>
+<p class="lead" style="color:var(--fg);font-size:21px"><b>Editron</b>, an AI video-editing agent I built and trained on <b>Grok Bot</b>, xAI's agent app. Later I handed its knowledge to <b>Grok Build</b> so it could work directly in my DaVinci Resolve timeline.</p>
+<p class="lead">I'm Daniel Klabunde, a video producer and editor who has run <b>Klabunde Media Company</b> since 2020. In October 2026 I built <b>Editron</b> as a Grok Bot agent. Then I trained it the way you would train a junior editor: I critiqued every version it made, wrote down <i>why</i> each cut, take, grade or caption worked or failed, and turned those notes into rules, tools and automated checks.</p>
 <div class="stats">
 <div class="stat"><b>3</b><span>brands: luxury jewelry Reels, app promos, my own media company</span></div>
 <div class="stat"><b>v1 → v10</b><span>versioned review loop; nothing overwritten</span></div>
@@ -17,12 +18,12 @@
 
 <section id="editron"><div class="w">
 <div class="kick">The agent</div><h2>What Editron is</h2>
-<p class="lead">Editron edits my client videos: captions and kinetic text, A-roll take selection, B-roll, color, audio and motion graphics. It works from my footage, scripts, shot lists and reference Reels. I gave it a C-3PO persona ("Oh dear, understood, sir"), which made the long feedback sessions a lot more fun.</p>
+<p class="lead">Editron is a Grok Bot: an agent I created in xAI's Grok Bot app and trained through conversation, memory and skills. It edits my client videos: captions and kinetic text, A-roll take selection, B-roll, color, audio and motion graphics. It works from my footage, scripts, shot lists and reference Reels. I gave it a C-3PO persona ("Oh dear, understood, sir"), which made the long feedback sessions a lot more fun.</p>
 <div class="grid">
 <div class="card"><h3>Zaidi Jewelers</h3><p>Vertical luxury Reels for a jewelry store launch: reference-matched cuts, brand typography, my own grade.</p></div>
 <div class="card"><h3>Chainlink</h3><p>A nightlife app I co-founded: talking-head promos with me and co-founder Devon, product demos, and motion-graphics explainers.</p></div>
 <div class="card"><h3>Klabunde Media</h3><p>My own company: cinematic talking-head panels with B-roll from my archive, captions in DIN Condensed.</p></div>
-<div class="card"><h3>Toolchain</h3><p>ffmpeg, Whisper transcription, face and gaze tracking, optical-flow shake metrics, Remotion motion graphics, fitted 3D LUTs, a DaVinci Resolve scripting bridge, and Python QC gates.</p></div>
+<div class="card"><h3>Toolchain</h3><p>Runs on <b>Grok Bot</b> (persistent memory, reusable skills, subagents for long renders). It edits with ffmpeg, Whisper transcription, face and gaze tracking, optical-flow shake metrics, Remotion motion graphics, fitted 3D LUTs and Python QC gates. Timeline-level work in DaVinci Resolve is handed to <b>Grok Build</b>.</p></div>
 </div></div></section>
 
 <section id="timeline"><div class="w"><div class="kick">Progress</div><h2>Timeline</h2><div class="tl" style="margin-top:24px">
@@ -31,10 +32,19 @@
 <div><time>Oct 15</time><h3>Talking heads and frame accuracy</h3><p>Chainlink promos: conservative stutter fixes, and cuts that turned janky when keyframes were set before the cut list changed. Zaidi: replace the chandelier shot, redo an "abysmal" outdoor grade, layer the voice-over, use the orbit shot. First Reel approved.</p></div>
 <div><time>Oct 16</time><h3>The style guide</h3><p>Every note so far was consolidated into one guide, with shot selection first. I added a nuance: documentary-style, off-lens delivery is a valid take as long as the eyeline is steady.</p></div>
 <div><time>Oct 17</time><h3>Learning my grade</h3><p>I sent my own graded export. Editron frame-aligned it with the ungraded render and fitted LUTs. It learned it had been cooling the whole image when I only take yellow out of the highlights. The same day: a voice swap (ADR), phone EQ and echo removal on a phone-call Reel.</p></div>
-<div><time>Oct 18</time><h3>Agent teaches agent</h3><p>I had Editron write an extremely detailed knowledge base so a second agent, Grok Build, could edit directly in DaVinci Resolve. Build's session log, including my real node tree, then flowed back into Editron. A root-cause retrospective of Editron's Chainlink misses produced an automated pre-delivery QC gate.</p></div>
+<div style="background:#1a1410;border:1px solid var(--acc);border-radius:12px;padding:14px"><time>Oct 18 · Milestone</time><h3>Into the Resolve timeline with Grok Build</h3><p>I had Editron write an extremely detailed knowledge base so a second agent, Grok Build, could edit directly in DaVinci Resolve. Build's session log, including my real node tree, then flowed back into Editron. A root-cause retrospective of Editron's Chainlink misses produced an automated pre-delivery QC gate.</p></div>
 <div><time>Oct 19</time><h3>A third brand</h3><p>Klabunde Media added, with brand research approved before any editing. A Chainlink graphics-only explainer was approved at v5. A Reel with invented search screens was rejected; the rule became "real screens only."</p></div>
 <div><time>Oct 21</time><h3>Four promos in parallel</h3><p>Value, personal, Gen Z and Devon cuts, with notes on gaps, a repeated line, graphic timing, music level, and floating vs full-screen graphics.</p></div>
 <div><time>Oct 22</time><h3>Calibrated and approved</h3><p>Demo C0010 approved after four grade passes. C0009 rebuilt from a take map of all 29 beats in a 9-minute source, tuned v2 → v3 → v4, then approved.</p></div>
+</div></div></section>
+
+<section id="build"><div class="w"><div class="kick">Precision learning</div><h2>Grok Bot → Grok Build → my DaVinci timeline</h2>
+<p class="lead">Exported videos only show what an edit looks like, not how it was built. To get timeline-level precision, I transferred Editron's knowledge to Grok Build, a coding agent that worked directly in my DaVinci Resolve project.</p>
+<div class="grid" style="margin-top:20px">
+<div class="card"><h3>1 · Package the knowledge</h3><p>On Oct 18, Editron compiled everything it had learned into a versioned knowledge repo for Grok Build: shot-selection rules, the feedback history, QC, fitted LUTs, audio and Resolve notes. Anything unknown was marked as such.</p></div>
+<div class="card"><h3>2 · Edit at the timeline level</h3><p>Build and I recut Zaidi Reel RH-4 inside Resolve Studio. Resolve's scripting API wouldn't connect on my Mac, so Build edited the project database directly with Resolve closed and confirmed every number against the inspector and viewer.</p></div>
+<div class="card"><h3>3 · Learn my real edit</h3><p>Build logged exact cut frames, zoom ramps (for example a slow 0.64→0.69 push on the opener) and my real node tree: curves → primary wheels → Glow → Vignette, with no LUT. That replaced Editron's pixel-fitted estimates for that kind of Reel.</p></div>
+<div class="card"><h3>4 · Feed it back</h3><p>Build's learnings log flowed back into Editron and became the RH-4 narrative rules: open mid-action, one prop carries the story, cut on completed action. Editron's v2 rebuild matched our Resolve cut.</p></div>
 </div></div></section>
 
 <section id="methods"><div class="w"><div class="kick">How I trained it</div><h2>Training methods</h2><div class="grid" style="margin-top:20px">
@@ -42,7 +52,7 @@
 <div class="card"><h3>2 · Notes become general rules</h3><p>Each correction is logged as <i>note → rule</i>. For example, "wobbly shot 42 s from end" became "measure background shake on every shot; replace, don't stabilize."</p></div>
 <div class="card"><h3>3 · Rules become skills and a knowledge base</h3><p>Dated memory facts, a brand-agnostic editing-rules skill, and a versioned git repo (shot selection, workflow and QC, color, audio, Resolve notes, per-client files).</p></div>
 <div class="card"><h3>4 · Learning from my real work</h3><p>Five of my Resolve timelines set the pacing. My graded exports were fitted into 3 LUTs (indoor, shade/dusk, sun) with mean ΔE2000 of 1.4, 2.2 and 1.7 against my grade.</p></div>
-<div class="card"><h3>5 · Agent-to-agent teaching</h3><p>Editron's knowledge base trained Grok Build in Resolve, and Build's findings came back as a log. A log line becomes a rule only after I confirm it.</p></div>
+<div class="card" style="border-color:var(--acc)"><h3>5 · Grok Build in my Resolve timeline</h3><p>I transferred Editron's knowledge to Grok Build so it could learn inside my actual DaVinci Resolve project, from my real cuts, zoom keyframes and node tree, rather than from exported files. Build's findings came back to Editron as a log. A log line becomes a rule only after I confirm it.</p></div>
 <div class="card"><h3>6 · QC gates instead of reminders</h3><p>Repeated misses became automated checks that block delivery: clipped word tails, repeats and false starts, graphics leaving the frame, idle graphics, and length of 90 s or more.</p></div>
 <div class="card"><h3>7 · Numeric tuning</h3><p>Vague notes ("tighter", "brighter") were turned into measured targets: pause lengths, cut handles, LUFS, highlight gain. Each was confirmed on the next version.</p></div>
 <div class="card"><h3>8 · Let it try first, then gate</h3><p>"Take a stab at it" first drafts, research assignments when a skill was missing, and approval gates (brand research before editing).</p></div>
@@ -105,7 +115,7 @@
 </div></section>
 
 <section id="about"><div class="w"><div class="kick">About me</div><h2>Daniel Klabunde</h2>
-<p class="lead">CEO and executive producer of Klabunde Media Company since 2020: shooting with professional cameras, drones and lighting, then editing and grading in DaVinci Resolve for luxury brands and real estate. Former creative director at Creativify / Sprint Socials (300+ creators), co-founder and CMO of Chainlink, open-source contributor to Omarchy Linux, and self-taught in software, AI and robotics.</p>
+<p class="lead">I designed and trained Editron on Grok Bot, then extended it to Grok Build for timeline-level work in DaVinci Resolve. I'm also CEO and executive producer of Klabunde Media Company since 2020: shooting with professional cameras, drones and lighting, then editing and grading in DaVinci Resolve for luxury brands and real estate. Former creative director at Creativify / Sprint Socials (300+ creators), co-founder and CMO of Chainlink, open-source contributor to Omarchy Linux, and self-taught in software, AI and robotics.</p>
 <p class="lead">This project is what an AI Tutor for video does every day: watch a sequence, say exactly why it works or fails, and turn that judgment into data a model can learn from.</p>
 </div></section>
 <footer><div class="w">© 2026 Daniel Klabunde · Videos shown with client permission.</div></footer>
