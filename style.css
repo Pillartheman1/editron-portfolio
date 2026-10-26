@@ -40,3 +40,4 @@ ul.did{font-size:18px;max-width:820px;padding-left:20px}ul.did li{margin:12px 0;
 .train b{display:block;font-size:15px;line-height:1.25;margin-bottom:6px}.train span{font-size:13px;color:var(--mut);line-height:1.4;display:block}
 .train li:last-child{border-color:var(--acc)}
 @media(max-width:900px){.train{grid-template-columns:1fr;gap:22px}.train li:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-22px;transform:none}}
+.featv{max-width:760px}.featv video{max-height:none}
