@@ -1,122 +1,46 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Training Editron: Daniel Klabunde's AI video-editing agent</title>
-<meta name="description" content="Case study: how video producer Daniel Klabunde trained an AI agent to edit video by critiquing every cut, take, grade and caption.">
+<title>Editron: the Grok Bot I trained to edit video | Daniel Klabunde</title>
+<meta name="description" content="Daniel Klabunde trained Editron, a Grok Bot, to edit client video by critiquing every version.">
 <link rel="stylesheet" href="style.css"></head><body>
-<nav><div class="w"><a href="#top">Overview</a><a href="#editron">Editron</a><a href="#timeline">Timeline</a><a href="#build">Grok Build</a><a href="#methods">Methods</a><a href="#rulebook">Rulebook</a><a href="#problems">Problems → Fixes</a><a href="#work">Work</a><a href="#about">About</a></div></nav>
-<header id="top" class="hero"><div class="w">
-<div class="kick">Case study · Oct 14 – Oct 22, 2026</div>
-<h1>Teaching an AI to edit video like I do</h1>
-<p class="lead" style="color:var(--fg);font-size:21px"><b>Editron</b>, an AI video-editing agent I built and trained on <b>Grok Bot</b>, xAI's agent app. Later I handed its knowledge to <b>Grok Build</b> so it could work directly in my DaVinci Resolve timeline.</p>
-<p class="lead">I'm Daniel Klabunde, a video producer and editor who has run <b>Klabunde Media Company</b> since 2020. In October 2026 I built <b>Editron</b> as a Grok Bot agent. Then I trained it the way you would train a junior editor: I critiqued every version it made, wrote down <i>why</i> each cut, take, grade or caption worked or failed, and turned those notes into rules, tools and automated checks.</p>
+<header class="hero"><div class="w">
+<div class="kick">Daniel Klabunde · Video editor &amp; AI trainer</div>
+<h1>Editron: a Grok Bot I trained to edit video like I do</h1>
+<p class="lead">I built Editron on <b>Grok Bot</b>, xAI's agent app. Over nine days in October 2026, I acted as its editor and teacher, reviewing every version it cut for real clients.</p>
 <div class="stats">
-<div class="stat"><b>3</b><span>brands: luxury jewelry Reels, app promos, my own media company</span></div>
-<div class="stat"><b>v1 → v10</b><span>versioned review loop; nothing overwritten</span></div>
-<div class="stat"><b>21+</b><span>critique → rule entries in the feedback log</span></div>
-<div class="stat"><b>15.8 s → 3.6 s</b><span>dead air removed in one calibration pass</span></div>
-<div class="stat"><b>ΔE 1.4–2.2</b><span>LUTs fitted from my own grades</span></div>
+<div class="stat"><b>3</b><span>brands with real client edits</span></div>
+<div class="stat"><b>21+</b><span>critique → rule entries</span></div>
+<div class="stat"><b>15.8 s → 3.6 s</b><span>dead air cut in one calibration pass</span></div>
 </div></div></header>
 
-<section id="editron"><div class="w">
-<div class="kick">The agent</div><h2>What Editron is</h2>
-<p class="lead">Editron is a Grok Bot: an agent I created in xAI's Grok Bot app and trained through conversation, memory and skills. It edits my client videos: captions and kinetic text, A-roll take selection, B-roll, color, audio and motion graphics. It works from my footage, scripts, shot lists and reference Reels. I gave it a C-3PO persona ("Oh dear, understood, sir"), which made the long feedback sessions a lot more fun.</p>
-<div class="grid">
-<div class="card"><h3>Zaidi Jewelers</h3><p>Vertical luxury Reels for a jewelry store launch: reference-matched cuts, brand typography, my own grade.</p></div>
-<div class="card"><h3>Chainlink</h3><p>A nightlife app I co-founded: talking-head promos with me and co-founder Devon, product demos, and motion-graphics explainers.</p></div>
-<div class="card"><h3>Klabunde Media</h3><p>My own company: cinematic talking-head panels with B-roll from my archive, captions in DIN Condensed.</p></div>
-<div class="card"><h3>Toolchain</h3><p>Runs on <b>Grok Bot</b> (persistent memory, reusable skills, subagents for long renders). It edits with ffmpeg, Whisper transcription, face and gaze tracking, optical-flow shake metrics, Remotion motion graphics, fitted 3D LUTs and Python QC gates. Timeline-level work in DaVinci Resolve is handed to <b>Grok Build</b>.</p></div>
+<section><div class="w"><h2>What I did</h2>
+<ul class="did">
+<li><b>Built and trained it on Grok Bot</b>, giving written notes on every cut, take, grade and caption until each edit was approved.</li>
+<li><b>Turned its mistakes into rules</b>: a versioned rulebook plus automated pre-delivery checks, so the same miss doesn't happen twice.</li>
+<li><b>Moved it into my DaVinci Resolve timeline with Grok Build.</b> I transferred Editron's knowledge to Grok Build so it could learn from my real cuts, zoom keyframes and colour node tree instead of exported files. Its lessons fed back into Editron.</li>
+<li><b>Shipped real client edits</b>: jewelry Reels for Zaidi Jewelers and promos for Chainlink, a nightlife app I co-founded.</li>
+</ul></div></section>
+
+<section><div class="w"><h2>Before → after</h2>
+<h3>Montage → story <span class="sub">(Zaidi Jewelers, after the Grok Build session)</span></h3>
+<p class="cap">v1 copied the reference shot for shot. After the Resolve recut with Grok Build, Editron rebuilt it as one evening told through a single prop.</p>
+<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/rh4-v1.jpg"><source src="media/rh4-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>v1: montage</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/rh4-v2.jpg"><source src="media/rh4-v2.mp4" type="video/mp4"></video><figcaption><span class="tag after">After</span>v2: story-led</figcaption></figure></div>
+<h3>Take selection and pacing <span class="sub">(Chainlink promo)</span></h3>
+<p class="cap">Rebuilt from a map of every take of all 29 beats. Dead air was cut from 15.8 s to 3.6 s, then about 0.26 s natural pauses were restored after the tighter cut clipped words.</p>
+<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/c0009-v1.jpg"><source src="media/c0009-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>v1: weak takes, slow joins</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0009-v4.jpg"><source src="media/c0009-v4.mp4" type="video/mp4"></video><figcaption><span class="tag after">After</span>v4: best take per beat, approved</figcaption></figure></div>
+<h3>Grading dusk footage <span class="sub">(Chainlink promo)</span></h3>
+<p class="cap">The footage was too dark. After four grade passes, v4 lifts only the highlights and leaves the shadows alone.</p>
+<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/c0010-v1.jpg"><source src="media/c0010-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>v1: too dark</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0010-v4.jpg"><source src="media/c0010-v4.mp4" type="video/mp4"></video><figcaption><span class="tag after">After</span>v4: approved</figcaption></figure></div>
+<details><summary>More work</summary>
+<div class="cmp three"><figure class="v"><video controls preload="none" playsinline poster="media/zaidi-phone-v10.jpg"><source src="media/zaidi-phone-v10.mp4" type="video/mp4"></video><figcaption>Zaidi phone-call Reel: captions, voice swap, phone EQ</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/weekly-v5.jpg"><source src="media/weekly-v5.mp4" type="video/mp4"></video><figcaption>Chainlink motion-graphics explainer (v5)</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0143-v4.jpg"><source src="media/c0143-v4.mp4" type="video/mp4"></video><figcaption>Devon promo: every-frame graphics audit</figcaption></figure></div>
+</details></div></section>
+
+<section><div class="w"><h2>How it improved</h2>
+<div class="strip">
+<div><time>Oct 14</time><p>First captioned Reel; it learned my cutting rhythm from my Resolve timelines.</p></div>
+<div><time>Oct 17</time><p>Learned my grade by fitting LUTs to my own graded exports.</p></div>
+<div class="hl"><time>Oct 18</time><p>Knowledge moved to Grok Build, working directly in my DaVinci Resolve timeline.</p></div>
+<div><time>Oct 22</time><p>Demo edits approved after calibrated rounds.</p></div>
 </div></div></section>
 
-<section id="timeline"><div class="w"><div class="kick">Progress</div><h2>Timeline</h2><div class="tl" style="margin-top:24px">
-<div><time>Oct 14</time><h3>Day one: a captioned Reel</h3><p>First task: caption a Zaidi Reel from the script and the brand's fonts and colors. My first note was that it was too bland: make the key words (brand, venue, "launch party") larger, stacked and gold. It learned my cutting rhythm from five of my Resolve timelines: hard cuts only, shots about 1.5–3.5 s (average about 2.3 s).</p></div>
-<div><time>Oct 14</time><h3>"You nailed the A-roll"</h3><p>The first full cut picked exactly the right A-roll moments, but weak B-roll from raw footage. I assigned deep cinematography research (framing, movement, light). Editron proposed comparing my own curated picks against the raw footage to learn my eye.</p></div>
-<div><time>Oct 15</time><h3>Talking heads and frame accuracy</h3><p>Chainlink promos: conservative stutter fixes, and cuts that turned janky when keyframes were set before the cut list changed. Zaidi: replace the chandelier shot, redo an "abysmal" outdoor grade, layer the voice-over, use the orbit shot. First Reel approved.</p></div>
-<div><time>Oct 16</time><h3>The style guide</h3><p>Every note so far was consolidated into one guide, with shot selection first. I added a nuance: documentary-style, off-lens delivery is a valid take as long as the eyeline is steady.</p></div>
-<div><time>Oct 17</time><h3>Learning my grade</h3><p>I sent my own graded export. Editron frame-aligned it with the ungraded render and fitted LUTs. It learned it had been cooling the whole image when I only take yellow out of the highlights. The same day: a voice swap (ADR), phone EQ and echo removal on a phone-call Reel.</p></div>
-<div style="background:#1a1410;border:1px solid var(--acc);border-radius:12px;padding:14px"><time>Oct 18 · Milestone</time><h3>Into the Resolve timeline with Grok Build</h3><p>I had Editron write an extremely detailed knowledge base so a second agent, Grok Build, could edit directly in DaVinci Resolve. Build's session log, including my real node tree, then flowed back into Editron. A root-cause retrospective of Editron's Chainlink misses produced an automated pre-delivery QC gate.</p></div>
-<div><time>Oct 19</time><h3>A third brand</h3><p>Klabunde Media added, with brand research approved before any editing. A Chainlink graphics-only explainer was approved at v5. A Reel with invented search screens was rejected; the rule became "real screens only."</p></div>
-<div><time>Oct 21</time><h3>Four promos in parallel</h3><p>Value, personal, Gen Z and Devon cuts, with notes on gaps, a repeated line, graphic timing, music level, and floating vs full-screen graphics.</p></div>
-<div><time>Oct 22</time><h3>Calibrated and approved</h3><p>Demo C0010 approved after four grade passes. C0009 rebuilt from a take map of all 29 beats in a 9-minute source, tuned v2 → v3 → v4, then approved.</p></div>
-</div></div></section>
-
-<section id="build"><div class="w"><div class="kick">Precision learning</div><h2>Grok Bot → Grok Build → my DaVinci timeline</h2>
-<p class="lead">Exported videos only show what an edit looks like, not how it was built. To get timeline-level precision, I transferred Editron's knowledge to Grok Build, a coding agent that worked directly in my DaVinci Resolve project.</p>
-<div class="grid" style="margin-top:20px">
-<div class="card"><h3>1 · Package the knowledge</h3><p>On Oct 18, Editron compiled everything it had learned into a versioned knowledge repo for Grok Build: shot-selection rules, the feedback history, QC, fitted LUTs, audio and Resolve notes. Anything unknown was marked as such.</p></div>
-<div class="card"><h3>2 · Edit at the timeline level</h3><p>Build and I recut Zaidi Reel RH-4 inside Resolve Studio. Resolve's scripting API wouldn't connect on my Mac, so Build edited the project database directly with Resolve closed and confirmed every number against the inspector and viewer.</p></div>
-<div class="card"><h3>3 · Learn my real edit</h3><p>Build logged exact cut frames, zoom ramps (for example a slow 0.64→0.69 push on the opener) and my real node tree: curves → primary wheels → Glow → Vignette, with no LUT. That replaced Editron's pixel-fitted estimates for that kind of Reel.</p></div>
-<div class="card"><h3>4 · Feed it back</h3><p>Build's learnings log flowed back into Editron and became the RH-4 narrative rules: open mid-action, one prop carries the story, cut on completed action. Editron's v2 rebuild matched our Resolve cut.</p></div>
-</div></div></section>
-
-<section id="methods"><div class="w"><div class="kick">How I trained it</div><h2>Training methods</h2><div class="grid" style="margin-top:20px">
-<div class="card"><h3>1 · Versioned review loop</h3><p>Every render is <code>name_vN.mp4</code> and never overwritten. I reply to a specific version with concrete notes, so each round is comparable.</p></div>
-<div class="card"><h3>2 · Notes become general rules</h3><p>Each correction is logged as <i>note → rule</i>. For example, "wobbly shot 42 s from end" became "measure background shake on every shot; replace, don't stabilize."</p></div>
-<div class="card"><h3>3 · Rules become skills and a knowledge base</h3><p>Dated memory facts, a brand-agnostic editing-rules skill, and a versioned git repo (shot selection, workflow and QC, color, audio, Resolve notes, per-client files).</p></div>
-<div class="card"><h3>4 · Learning from my real work</h3><p>Five of my Resolve timelines set the pacing. My graded exports were fitted into 3 LUTs (indoor, shade/dusk, sun) with mean ΔE2000 of 1.4, 2.2 and 1.7 against my grade.</p></div>
-<div class="card" style="border-color:var(--acc)"><h3>5 · Grok Build in my Resolve timeline</h3><p>I transferred Editron's knowledge to Grok Build so it could learn inside my actual DaVinci Resolve project, from my real cuts, zoom keyframes and node tree, rather than from exported files. Build's findings came back to Editron as a log. A log line becomes a rule only after I confirm it.</p></div>
-<div class="card"><h3>6 · QC gates instead of reminders</h3><p>Repeated misses became automated checks that block delivery: clipped word tails, repeats and false starts, graphics leaving the frame, idle graphics, and length of 90 s or more.</p></div>
-<div class="card"><h3>7 · Numeric tuning</h3><p>Vague notes ("tighter", "brighter") were turned into measured targets: pause lengths, cut handles, LUFS, highlight gain. Each was confirmed on the next version.</p></div>
-<div class="card"><h3>8 · Let it try first, then gate</h3><p>"Take a stab at it" first drafts, research assignments when a skill was missing, and approval gates (brand research before editing).</p></div>
-</div></div></section>
-
-<section id="rulebook"><div class="w"><div class="kick">What makes video work</div><h2>The rulebook</h2>
-<p class="lead">This is a sample of the rules I articulated, grouped by craft area. Each one came from a specific failed version.</p>
-<div class="grid" style="margin-top:20px">
-<div class="card"><h3>Takes and A-roll</h3><ul class="why"><li>Real delivery only; never a rehearsal or phone-reading take.</li><li>Keep the final complete delivery of a line; cut false starts.</li><li>Never splice partial takes mid-sentence.</li><li>Cut in measured silence, never into a word's tail.</li><li>Talking heads end on camera, on the last word, with no fade.</li></ul></div>
-<div class="card"><h3>Shots and B-roll</h3><ul class="why"><li>No repeated B-roll, ever.</li><li>Open on the person mid-action, not an empty establishing shot.</li><li>End on a human moment, then the brand card.</li><li>Check action direction (put-ins, not take-outs) and show whole actions.</li><li>Narrative Reels cut on completed action; montage Reels cut on the beat.</li></ul></div>
-<div class="card"><h3>Color</h3><ul class="why"><li>Never lift the blacks; roll off the highlights.</li><li>Remove yellow from the highlights only; never cool the whole image.</li><li>Choose the look by footage type: interior, shade or sun.</li><li>Dusk footage: brighten minimally, or it reads as LOG and turns grainy.</li></ul></div>
-<div class="card"><h3>Text and motion graphics</h3><ul class="why"><li>Sentences stay on screen at least 1.5 s (3 s for explainers).</li><li>Graphics enter 0.1–0.2 s before the keyword that names them.</li><li>No constant bouncing or highlight sweeps; give viewers time to read.</li><li>Real content only; no invented stats or UI.</li></ul></div>
-<div class="card"><h3>Audio</h3><ul class="why"><li>Start the music at the vocal entry; land the song's ending on the last frame.</li><li>-14 LUFS, with the voice clearly above the music bed.</li><li>One subtle SFX at most; over-processing is the most common miss.</li></ul></div>
-</div>
-<h3 style="margin-top:40px">What I catch most often</h3>
-<table><tr><th>Pattern</th><th>Example note</th><th>Check now run before delivery</th></tr>
-<tr><td>Audio cut artifacts</td><td>"Endings clipped"; a throat clear left in</td><td>Listen to every join; level at every out-point at least 20 dB under speech</td></tr>
-<tr><td>Stutters and duplicate lines</td><td>"And, and Chainlink…"; a repeated "it's free"</td><td>Re-transcribe a short window at every join; scan for repeated words</td></tr>
-<tr><td>Unfinished thoughts</td><td>A sentence cut mid-thought to save time</td><td>Every segment ends on its last word</td></tr>
-<tr><td>Graphics framing</td><td>Partial cards, items sliding off-frame, graphics over captions</td><td>Every-frame edge, clip and overlap audit: 0 / 0 / 0</td></tr>
-<tr><td>Invented content</td><td>An invented "$300 / night" stat</td><td>Every number traceable to the brief or a real screen</td></tr>
-<tr><td>Wrong take</td><td>Head-down or rehearsal take</td><td>Gaze and delivery audit on every take</td></tr>
-<tr><td>Over-processing</td><td>"Paper SFX too much"; heavy regrade</td><td>Minimal by default</td></tr>
-<tr><td>Pacing and length</td><td>Choppy, then too slow</td><td>Shot-length table against targets</td></tr></table>
-</div></section>
-
-<section id="problems"><div class="w"><div class="kick">Diagnosis</div><h2>Problems → solutions</h2>
-<div class="proj"><h3>Silence: too loose, too tight, then right</h3>
-<p>Demo C0009 v1 had weak takes, so Editron rebuilt it from a map of every take of all 29 beats. v2 still had dead air: 43 gaps, 15.8 s in total, and 1.58 s before the first word. v3 removed it (3.6 s) but cut words off. v4 only trims pauses longer than 0.5 s and keeps about 0.26 s of breath (0.12 s after a word's tail, 0.14 s before the next onset). It also fixed three clipped words found by transcribing each cut individually. Approved.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/c0009-v1.jpg"><source src="media/c0009-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>C0009 v1: weak takes, uh's, slow joins</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0009-v4.jpg"><source src="media/c0009-v4.mp4" type="video/mp4"></video><figcaption><span class="tag after">Approved</span>C0009 v4: best take per beat, calibrated pauses</figcaption></figure></div></div>
-<div class="proj"><h3>Grading dusk footage</h3>
-<p>C0010 was shot as the sun set and looked too dark. v2's big gamma lift looked like ungraded LOG footage; v3 added denoise and was still grainy. v4 kept the original punchy grade and added only about 1.18× highlight gain with no shadow lift. Approved.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/c0010-v1.jpg"><source src="media/c0010-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>C0010 v1: too dark</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0010-v4.jpg"><source src="media/c0010-v4.mp4" type="video/mp4"></video><figcaption><span class="tag after">Approved</span>C0010 v4: highlights lifted, shadows untouched</figcaption></figure></div>
-<div class="cmp"><figure><img loading="lazy" src="img/grade_compare_v3.jpg" alt="Grade comparison v3"><figcaption>v3 comparison: lifted and denoised, grainy</figcaption></figure><figure><img loading="lazy" src="img/grade_compare_v4.jpg" alt="Grade comparison v1 vs v4"><figcaption>v1 (left) vs approved v4 (right)</figcaption></figure></div></div>
-<div class="proj"><h3>Motion graphics that communicate</h3>
-<p>Weekly-planning explainer, graphics only. Notes: no left-to-right highlight sweeps, no constant bouncing, too fast to process, and the tool's value wasn't clear. v5: one idea per beat, headline then UI, sentences held 3 s or more, smooth ease-outs without overshoot, and a problem → solution → payoff structure.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/weekly-v1.jpg"><source src="media/weekly-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>Weekly v1</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/weekly-v5.jpg"><source src="media/weekly-v5.mp4" type="video/mp4"></video><figcaption><span class="tag after">Approved</span>Weekly v5 (44 s)</figcaption></figure></div></div>
-<div class="proj"><h3>Graphics that stay in frame</h3>
-<p>Devon's promo (C0143) went through clipped endings, a throat clear, a duplicated line, an unfinished sentence, ring highlights and partial crops. Spot-checking a few stills kept missing problems that lived in 1–8-frame windows, so the fix was an every-frame audit that has to report zero edge and zero clip frames.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/c0143-v1.jpg"><source src="media/c0143-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>C0143 v1</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/c0143-v4.jpg"><source src="media/c0143-v4.mp4" type="video/mp4"></video><figcaption><span class="tag after">Approved</span>C0143 v4</figcaption></figure></div></div>
-<div class="proj"><h3>From montage to story</h3>
-<p>Zaidi RH-4 v1 matched the reference shot for shot as a montage. My recut with Grok Build in Resolve turned it into one evening carried by a coffee cup: open mid-action, jewelry only on a hand doing something, cut on completed action. v2 is Editron's rebuild from those lessons.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/rh4-v1.jpg"><source src="media/rh4-v1.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>RH-4 v1: montage</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/rh4-v2.jpg"><source src="media/rh4-v2.mp4" type="video/mp4"></video><figcaption><span class="tag after">Final</span>RH-4 v2: story-led</figcaption></figure></div></div>
-<div class="proj"><h3>Captions and dialogue repair</h3>
-<p>The very first job. The captions started too bland; I asked for the trend-style stack with gold key words. Later passes swapped her lines by ADR while keeping the caller, music and SFX, restored a word that dropped out, added a phone-voice EQ, and removed echo with dereverb.</p>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/zaidi-phone-v2.jpg"><source src="media/zaidi-phone-v2.mp4" type="video/mp4"></video><figcaption><span class="tag before">Before</span>Phone Reel v2</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/zaidi-phone-v10.jpg"><source src="media/zaidi-phone-v10.mp4" type="video/mp4"></video><figcaption><span class="tag after">Final</span>Phone Reel v10</figcaption></figure></div></div>
-<table style="margin-top:36px"><tr><th>Problem</th><th>Solution</th></tr>
-<tr><td>Weak B-roll picks from raw footage</td><td>Cinematography research plus an 11-point shot checklist: person, steady, purpose, direction, clean, unique, framing, timing, position, light, flag</td></tr>
-<tr><td>Janky cuts and drift</td><td>Plan in frames at the source rate (29.97 ≠ 30); rebuild keyframes after every cut change</td></tr>
-<tr><td>Wrong action direction</td><td>Compare the bowl before and after each hand visit</td></tr>
-<tr><td>Wrong speaker assumed</td><td>Confirm the speaker from frames before writing copy</td></tr>
-<tr><td>Flaky transfers from an offline machine</td><td>Resumable progress files, md5 checks, sources pre-downloaded</td></tr></table>
-</div></section>
-
-<section id="work"><div class="w"><div class="kick">Deliverables</div><h2>More work</h2>
-<div class="cmp three"><figure class="v"><video controls preload="none" playsinline poster="media/zaidi6-v3.jpg"><source src="media/zaidi6-v3.mp4" type="video/mp4"></video><figcaption>Zaidi 6: 1.8× tracked crop from 4K so her hands fill the frame</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/zaidi7-v2.jpg"><source src="media/zaidi7-v2.mp4" type="video/mp4"></video><figcaption>Zaidi 7: angle-finding removed</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/rh9-v3.jpg"><source src="media/rh9-v3.mp4" type="video/mp4"></video><figcaption>Zaidi RH-9 v3</figcaption></figure></div>
-<div class="cmp"><figure class="v"><video controls preload="none" playsinline poster="media/genz-v5.jpg"><source src="media/genz-v5.mp4" type="video/mp4"></video><figcaption><span class="tag after">Approved</span>Chainlink Gen Z promo v5: floating plus full-screen graphics</figcaption></figure><figure class="v"><video controls preload="none" playsinline poster="media/devon-v3.jpg"><source src="media/devon-v3.mp4" type="video/mp4"></video><figcaption>Chainlink promo with Devon, v3</figcaption></figure></div>
-<h3 style="margin-top:30px">Thumbnails</h3><p style="color:var(--mut)">Brief: no faces, four individual files.</p>
-<div class="cmp three"><img loading="lazy" src="img/thumb1.jpg" alt="Chainlink thumbnail"><img loading="lazy" src="img/thumb2.jpg" alt="Chainlink thumbnail"><img loading="lazy" src="img/thumb3.jpg" alt="Chainlink thumbnail"><img loading="lazy" src="img/thumb4.jpg" alt="Chainlink thumbnail"><img loading="lazy" src="img/thumb5.jpg" alt="Chainlink thumbnail"><img loading="lazy" src="img/contact_sheet.jpg" alt="Thumbnail contact sheet"></div>
-</div></section>
-
-<section id="about"><div class="w"><div class="kick">About me</div><h2>Daniel Klabunde</h2>
-<p class="lead">I designed and trained Editron on Grok Bot, then extended it to Grok Build for timeline-level work in DaVinci Resolve. I'm also CEO and executive producer of Klabunde Media Company since 2020: shooting with professional cameras, drones and lighting, then editing and grading in DaVinci Resolve for luxury brands and real estate. Former creative director at Creativify / Sprint Socials (300+ creators), co-founder and CMO of Chainlink, open-source contributor to Omarchy Linux, and self-taught in software, AI and robotics.</p>
-<p class="lead">This project is what an AI Tutor for video does every day: watch a sequence, say exactly why it works or fails, and turn that judgment into data a model can learn from.</p>
-</div></section>
-<footer><div class="w">© 2026 Daniel Klabunde · Videos shown with client permission.</div></footer>
+<footer><div class="w">Daniel Klabunde is a video producer, editor and colorist who has run Klabunde Media Company since 2020. Editron is a personal project built on Grok Bot.</div></footer>
 </body></html>
